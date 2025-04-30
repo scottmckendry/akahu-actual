@@ -135,3 +135,4 @@ dist
 .yarn/install-state.gz
 .pnp.*
 tmp/My-Finances-e136d51
+actual-data
