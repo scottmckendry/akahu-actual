@@ -1,9 +1,9 @@
 import { config } from "dotenv";
 import type { TransactionQueryParams, EnrichedTransaction } from "akahu";
-import { AkahuService } from "./src/services/akahu-service.js";
-import { ActualService } from "./src/services/actual-service.js";
-import { transformTransaction } from "./src/utils/transaction-transformer.js";
-import { validateEnv, ValidatedConfig } from "./src/utils/env-validator.js";
+import { AkahuService } from "./services/akahu-service.js";
+import { ActualService } from "./services/actual-service.js";
+import { transformTransaction } from "./utils/transaction-transformer.js";
+import { validateEnv, ValidatedConfig } from "./utils/env-validator.js";
 
 async function main() {
     try {
