@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.1](https://github.com/scottmckendry/akahu-actual/compare/v0.1.0...v0.1.1) (2025-04-30)
+
+
+### Bug Fixes
+
+* **ci:** add step id to correct set outputs ([2e71e2c](https://github.com/scottmckendry/akahu-actual/commit/2e71e2cee62c1d8d782ce2acb456e78d223957bd))
+
 ## 0.1.0 (2025-04-30)
 
 
