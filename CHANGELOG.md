@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.1](https://github.com/scottmckendry/akahu-actual/compare/v0.1.0...v0.1.1) (2025-04-30)
+
+
+### Bug Fixes
+
+* **docker:** network-error when using alpine as runtime image ([087878b](https://github.com/scottmckendry/akahu-actual/commit/087878be6c37a580d364ea5ecfd8eba61b357e14))
+
 ## 0.1.0 (2025-04-30)
 
 
