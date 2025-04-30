@@ -11,5 +11,6 @@
     },
     "devDependencies": {
         "@types/node": "^22.15.3"
-    }
+    },
+    "version": "0.1.0"
 }
