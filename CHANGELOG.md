@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.2](https://github.com/scottmckendry/akahu-actual/compare/v0.1.1...v0.1.2) (2025-04-30)
+
+
+### Bug Fixes
+
+* **ci:** resolve docker build attestation error ([d817b99](https://github.com/scottmckendry/akahu-actual/commit/d817b995ff1d21ef9f0361ad0e61b92980ce8d8f))
+
 ## [0.1.1](https://github.com/scottmckendry/akahu-actual/compare/v0.1.0...v0.1.1) (2025-04-30)
 
 
