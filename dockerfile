@@ -1,5 +1,5 @@
 # build
-FROM node:22-alpine AS builder
+FROM node:22-slim AS builder
 USER node
 
 WORKDIR /build
@@ -8,7 +8,7 @@ RUN npm install
 RUN npx tsc
 
 # runtime
-FROM node:22-alpine
+FROM node:22-slim
 USER node
 
 WORKDIR /app

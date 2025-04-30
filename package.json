@@ -1,5 +1,5 @@
 {
-    "name": "ahaku-actual",
+    "name": "akahu-actual",
     "private": true,
     "peerDependencies": {
         "typescript": "^5"
