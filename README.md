@@ -1,46 +1,105 @@
 # Akahu to Actual Budget 🚀
 
-A dead-simple script that connects the brilliant [Akahu API](https://akaku.nz/) to the equally brilliant [Actual Budget](https://actualbudget.org/) app.
+A dead-simple script that connects the brilliant [Akahu API](https://akahu.nz/) to the equally brilliant [Actual Budget](https://actualbudget.org/) app.
 
 An ideal solution for Kiwis who want to use Actual Budget to manage their finances, but find the manual import process a bit tedious.
 
-## ⚡How it works
+## 🔑 Prerequisites
 
-1. Connects to the Akahu API using your personal app and user tokens.
-2. Pulls transactions from all connected accounts, mapping them to their corresponding Actual Budget accounts.
-3. Transforms the transactions into a format that Actual Budget can understand.
-4. Pushes the transactions to Actual Budget using its API.
+- An Akahu account with a configured personal app ([see Akuhu's documentation](https://developers.akahu.nz/docs/personal-apps))
+- Docker (recommended) or Node.js
 
-## 🌱 Getting Started
+> [!NOTE]
+> Only the **Transactions** permission is required in your Akahu app settings.
 
-Once cloned, you'll want to set the following environment variables in a `.env` file in the root of the project:
+## ⚡ How it Works
+
+1. Connects to the Akahu API using your personal app and user tokens
+2. Pulls transactions from all connected accounts, mapping them to their corresponding Actual Budget accounts
+3. Transforms the transactions into a format that Actual Budget can understand
+4. Pushes the transactions to Actual Budget using its API
+
+## 🛠️ Configuration
+
+Create an `.env` file in the with the following settings:
 
 ```bash
-# akahu app credentials
+# Akahu API Credentials
 AKAHU_APP_TOKEN=app_token_abcd
 AKAHU_USER_TOKEN=user_token_1234
 
-# account mappings in the format {"akahu_account_id": "actual_account_id"} - TODO: document how to get these
+# Account Mappings
+# Format: {"akahu_account_id": "actual_account_id"}
+# - Akahu IDs: Found in URL when viewing account on my.akahu.nz (format: acc_xxx...)
+# - Actual IDs: Found in URL when viewing account in Actual Budget (GUID format)
 ACCOUNT_MAPPINGS={"akahu_account_id_1":"actual_account_id_1", "akahu_account_id_2":"actual_account_id_2"}
 
-ACTUAL_SERVER_URL=http://localhost:5006             # URL of your Actual server
-ACTUAL_PASSWORD=password                            # your actual master password
-ACTUAL_SYNC_ID=00000000-0000-0000-0000-000000000000 # UUID can be found in Actual under Settings -> Advanced Settings
-DAYS_TO_FETCH=7                                     # optional number of days to search back in Akahu transactions, default is 7 days
+# Actual Budget Configuration
+ACTUAL_SERVER_URL=http://localhost:5006    # URL of your Actual server
+ACTUAL_PASSWORD=password                   # Your Actual master password
+ACTUAL_SYNC_ID=00000000-0000-0000-0000-000000000000  # Found in Settings -> Advanced Settings
+
+# Optional Settings
+DAYS_TO_FETCH=7  # Number of days of transaction history to fetch (default: 7)
 ```
 
-Install dependencies with:
+## 🚀 Deployment Options
+
+### Option 1: Docker Compose (Recommended)
+
+Create a `docker-compose.yml` file:
+
+```yaml
+services:
+    actual_server:
+        container_name: actual_server
+        image: docker.io/actualbudget/actual-server:latest
+        ports:
+            - "5006:5006"
+        volumes:
+            - ./actual-data:/data
+        restart: unless-stopped
+        healthcheck:
+            test: ["CMD-SHELL", "node src/scripts/health-check.js"]
+            interval: 60s
+            timeout: 10s
+            retries: 3
+            start_period: 20s
+
+    akahu-actual:
+        container_name: akahu-actual
+        image: ghcr.io/scottmckendry/akahu-actual
+        env_file:
+            - .env
+        depends_on:
+            actual_server:
+                condition: service_healthy
+```
+
+> [!TIP]
+> The `akahu-actual` container runs once and exits. To run it again:
+>
+> ```bash
+> docker restart akahu-actual
+> ```
+>
+> Consider setting up a cron job for automatic scheduling.
+
+### Option 2: Local Node.js Installation
+
+1. Clone the repository
+2. Install dependencies:
 
 ```bash
 npm install
 ```
 
-Then run the script with:
+3. Run the script:
 
 ```bash
-tsc && node dist/index.js
+npx tsc && node dist/index.js
 ```
 
-<!-- Since most people will want to run this alongside their Actual server, there's a good chance they'll be using docker.  -->
+## 🤝 Contributing
 
-<!-- TODO: containerize this script and provide instructions for running it on a docker server. -->
+Contributions are welcome! Please feel free to submit a Pull Request.
