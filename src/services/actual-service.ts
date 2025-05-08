@@ -1,6 +1,5 @@
 import * as api from "@actual-app/api";
-import { mkdir } from "fs/promises";
-import { existsSync } from "fs";
+import * as os from "os";
 
 export interface ActualTransaction {
     imported_id: string;
@@ -18,17 +17,14 @@ export class ActualService {
     ) {}
 
     async initialize(): Promise<void> {
-        const tmpDir = "./tmp";
-        if (!existsSync(tmpDir)) {
-            await mkdir(tmpDir);
-        }
         await api.init({
-            dataDir: tmpDir,
+            dataDir: os.tmpdir(),
             serverURL: this.serverURL,
             password: this.password,
         });
         await api.downloadBudget(this.syncId);
     }
+
     async importTransactions(
         accountId: string,
         transactions: ActualTransaction[],
