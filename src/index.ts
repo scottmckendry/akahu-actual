@@ -25,6 +25,7 @@ async function main() {
         const actualService = new ActualService(
             conf.actualServerUrl,
             conf.actualPassword,
+            conf.actualE2eEncryptionPassword,
             conf.actualSyncId,
         );
 
