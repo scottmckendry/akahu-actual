@@ -3,6 +3,7 @@ interface EnvConfig {
     AKAHU_USER_TOKEN: string;
     ACTUAL_SERVER_URL: string;
     ACTUAL_PASSWORD: string;
+    ACTUAL_E2E_ENCRYPTION_PASSWORD: string;
     ACTUAL_SYNC_ID: string;
     ACCOUNT_MAPPINGS: string;
     DAYS_TO_FETCH?: string;
@@ -13,6 +14,7 @@ export interface ValidatedConfig {
     akahuUserToken: string;
     actualServerUrl: string;
     actualPassword: string;
+    actualE2eEncryptionPassword: string | undefined;
     actualSyncId: string;
     accountMappings: Record<string, string>;
     daysToFetch: number;
@@ -49,6 +51,7 @@ export function validateEnv(): ValidatedConfig {
         akahuUserToken: process.env.AKAHU_USER_TOKEN!,
         actualServerUrl: process.env.ACTUAL_SERVER_URL!,
         actualPassword: process.env.ACTUAL_PASSWORD!,
+        actualE2eEncryptionPassword: process.env.ACTUAL_E2E_ENCRYPTION_PASSWORD,
         actualSyncId: process.env.ACTUAL_SYNC_ID!,
         accountMappings,
         daysToFetch,
