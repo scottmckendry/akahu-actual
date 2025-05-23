@@ -13,6 +13,7 @@ export class ActualService {
     constructor(
         private readonly serverURL: string,
         private readonly password: string,
+        private readonly e2eEncryptionPassword: string | undefined,
         private readonly syncId: string,
     ) {}
 
@@ -22,7 +23,10 @@ export class ActualService {
             serverURL: this.serverURL,
             password: this.password,
         });
-        await api.downloadBudget(this.syncId);
+        const downloadParams = this.e2eEncryptionPassword
+            ? { password: this.e2eEncryptionPassword }
+            : undefined;
+        await api.downloadBudget(this.syncId, downloadParams);
     }
 
     async importTransactions(
