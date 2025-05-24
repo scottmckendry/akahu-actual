@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.0](https://github.com/scottmckendry/akahu-actual/compare/v0.1.2...v0.2.0) (2025-05-24)
+
+
+### Features
+
+* **actual:** support e2e encrypted instances ([a21f1e1](https://github.com/scottmckendry/akahu-actual/commit/a21f1e197e052119811456c8a5d03c56495bafa2))
+
 ## [0.1.2](https://github.com/scottmckendry/akahu-actual/compare/v0.1.1...v0.1.2) (2025-05-08)
 
 
