@@ -41,6 +41,7 @@ ACTUAL_SYNC_ID=00000000-0000-0000-0000-000000000000  # Found in Settings -> Adva
 
 # Optional Settings
 DAYS_TO_FETCH=7  # Number of days of transaction history to fetch (default: 7)
+ACTUAL_E2E_ENCRYPTION_PASSWORD=password # Actual E2E encryption password, if enabled (default: undefined)
 ```
 
 ## 🚀 Deployment Options
