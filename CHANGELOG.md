@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.3.0](https://github.com/scottmckendry/akahu-actual/compare/v0.2.0...v0.3.0) (2025-06-10)
+
+
+### Features
+
+* **deps:** update dependency @actual-app/api ( 25.5.0 → 25.6.1 ) ([1c11349](https://github.com/scottmckendry/akahu-actual/commit/1c113491eb9ac4bab40781b03056a349bb3174eb))
+
+
+### Bug Fixes
+
+* **deps:** update dependency @types/node ( 22.15.29 → 22.15.31 ) ([7db5bd0](https://github.com/scottmckendry/akahu-actual/commit/7db5bd0d17f01365f329aa99bac0a35e4bd4e0ae))
+
 ## [0.2.0](https://github.com/scottmckendry/akahu-actual/compare/v0.1.2...v0.2.0) (2025-05-24)
 
 
