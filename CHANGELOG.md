@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.5.0](https://github.com/scottmckendry/akahu-actual/compare/v0.4.0...v0.5.0) (2025-06-27)
+
+
+### Features
+
+* **deps:** update dependency dotenv ( 16.5.0 → 16.6.0 ) ([0bca0d7](https://github.com/scottmckendry/akahu-actual/commit/0bca0d77b543cbd4ce9aa9103e5e284ae3ce6f3a))
+
 ## [0.4.0](https://github.com/scottmckendry/akahu-actual/compare/v0.3.0...v0.4.0) (2025-06-26)
 
 
