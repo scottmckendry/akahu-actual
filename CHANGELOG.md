@@ -1,5 +1,21 @@
 # Changelog
 
+## [0.5.0](https://github.com/scottmckendry/akahu-actual/compare/v0.4.0...v0.5.0) (2025-07-03)
+
+
+### Features
+
+* **deps:** update dependency @types/node ( 22.15.34 → 22.16.0 ) ([cc06130](https://github.com/scottmckendry/akahu-actual/commit/cc061305e0f67c86b45e31e7bcc956f1dd60efb2))
+* **deps:** update dependency dotenv ( 16.5.0 → 16.6.0 ) ([0bca0d7](https://github.com/scottmckendry/akahu-actual/commit/0bca0d77b543cbd4ce9aa9103e5e284ae3ce6f3a))
+* **deps:** Update dependency dotenv ( 16.6.0 → 17.0.0 ) ([#36](https://github.com/scottmckendry/akahu-actual/issues/36)) ([77c9e5d](https://github.com/scottmckendry/akahu-actual/commit/77c9e5dc6d74265ee66d45367bb06fdbfbcf3b03))
+
+
+### Bug Fixes
+
+* **deps:** update dependency @actual-app/api ( 25.7.0 → 25.7.1 ) ([67b4748](https://github.com/scottmckendry/akahu-actual/commit/67b4748175f77df428fbb3d0256bd8a2d6f24d5d))
+* **deps:** update dependency @types/node ( 22.15.33 → 22.15.34 ) ([e8109ec](https://github.com/scottmckendry/akahu-actual/commit/e8109ecb03cd4f6892d497f889827c7fe4b4a745))
+* **deps:** update dependency dotenv ( 17.0.0 → 17.0.1 ) ([0aafd1a](https://github.com/scottmckendry/akahu-actual/commit/0aafd1abbeab3e95a525b2ff5f12d7de3a9987ec))
+
 ## [0.4.0](https://github.com/scottmckendry/akahu-actual/compare/v0.3.0...v0.4.0) (2025-06-26)
 
 
