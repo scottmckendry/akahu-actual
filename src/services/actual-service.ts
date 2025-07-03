@@ -1,4 +1,5 @@
 import * as api from "@actual-app/api";
+import { ImportTransactionEntity } from "@actual-app/api/@types/loot-core/src/types/models";
 import * as os from "os";
 
 export interface ActualTransaction {
@@ -33,7 +34,19 @@ export class ActualService {
         accountId: string,
         transactions: ActualTransaction[],
     ): Promise<void> {
-        await api.importTransactions(accountId, transactions);
+        const formattedTransactions: ImportTransactionEntity[] =
+            transactions.map((t) => {
+                const dateStr = t.date.toISOString().slice(0, 10);
+                return {
+                    account: accountId,
+                    date: dateStr,
+                    amount: t.amount,
+                    payee_name: t.payee_name,
+                    notes: t.notes,
+                    imported_id: t.imported_id,
+                };
+            });
+        await api.importTransactions(accountId, formattedTransactions);
     }
 
     async shutdown(): Promise<void> {
