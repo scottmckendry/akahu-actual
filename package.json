@@ -10,7 +10,14 @@
         "dotenv": "^17.0.0"
     },
     "devDependencies": {
-        "@types/node": "^22.15.29"
+        "@types/jest": "^30.0.0",
+        "@types/node": "^22.15.29",
+        "jest": "^30.0.5",
+        "ts-jest": "^29.4.1",
+        "ts-node": "^10.9.2"
+    },
+    "scripts": {
+        "test": "jest"
     },
     "version": "0.5.0"
 }
