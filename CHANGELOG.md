@@ -1,5 +1,19 @@
 # Changelog
 
+## [0.7.0](https://github.com/scottmckendry/akahu-actual/compare/v0.6.0...v0.7.0) (2025-09-07)
+
+
+### Features
+
+* **deps:** update dependency @actual-app/api ( 25.8.0 → 25.9.0 ) ([1fe66b9](https://github.com/scottmckendry/akahu-actual/commit/1fe66b979ea464db70c3563298ebaad57986420d))
+* **deps:** update dependency @types/node ( 22.17.0 → 22.18.1 ) ([d739273](https://github.com/scottmckendry/akahu-actual/commit/d739273b1a619fabdb4f2020aa6dd0d24d86faa4))
+* **deps:** update dependency jest ( 30.0.5 → 30.1.3 ) ([3c2f6d8](https://github.com/scottmckendry/akahu-actual/commit/3c2f6d81b9faf4f4e04488968d36f7b524ca78f5))
+
+
+### Bug Fixes
+
+* **deps:** update dependency dotenv ( 17.2.1 → 17.2.2 ) ([b12f7fb](https://github.com/scottmckendry/akahu-actual/commit/b12f7fb54b29591336a43e409a3b874333b650de))
+
 ## [0.6.0](https://github.com/scottmckendry/akahu-actual/compare/v0.5.0...v0.6.0) (2025-08-04)
 
 
