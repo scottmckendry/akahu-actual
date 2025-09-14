@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.7.1](https://github.com/scottmckendry/akahu-actual/compare/v0.7.0...v0.7.1) (2025-09-14)
+
+
+### Bug Fixes
+
+* **build:** typescript compile paths inc excl ([30e2e9c](https://github.com/scottmckendry/akahu-actual/commit/30e2e9c10e97215da425d81f05fb2b2b40532204))
+* **deps:** update dependency @types/node ( 22.18.1 → 22.18.3 ) ([16e1893](https://github.com/scottmckendry/akahu-actual/commit/16e1893c1998b1aa960b067d23e8d362b76dd5e3))
+
 ## [0.7.0](https://github.com/scottmckendry/akahu-actual/compare/v0.6.0...v0.7.0) (2025-09-07)
 
 
