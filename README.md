@@ -21,7 +21,7 @@ An ideal solution for Kiwis who want to use Actual Budget to manage their financ
 
 ## 🛠️ Configuration
 
-Create an `.env` file in the with the following settings:
+Create an `.env` file with the following settings:
 
 ```bash
 # Akahu API Credentials
@@ -42,7 +42,11 @@ ACTUAL_SYNC_ID=00000000-0000-0000-0000-000000000000  # Found in Settings -> Adva
 # Optional Settings
 DAYS_TO_FETCH=7  # Number of days of transaction history to fetch (default: 7)
 ACTUAL_E2E_ENCRYPTION_PASSWORD=password # Actual E2E encryption password, if enabled (default: undefined)
+RECONCILE_ACCOUNT_IDS=["akahu_account_id_1","akahu_account_id_2"] # JSON array of Akahu account IDs to reconcile after import (default: [])
 ```
+
+> [!TIP]
+> Certain accounts may be influenced by factors other than transactions (e.g. investments, KiwiSaver). In which case, relying solely on transaction imports may lead to discrepancies. Use the `RECONCILE_ACCOUNT_IDS` setting to specify which accounts should be reconciled after import, ensuring their balances align with their real-world counterparts.
 
 ## 🚀 Deployment Options
 
