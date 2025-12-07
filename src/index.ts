@@ -1,5 +1,9 @@
+import type {
+    TransactionQueryParams,
+    EnrichedTransaction,
+    Account,
+} from "akahu";
 import { config } from "dotenv";
-import type { TransactionQueryParams, EnrichedTransaction } from "akahu";
 import { AkahuService } from "./services/akahu-service.js";
 import { ActualService } from "./services/actual-service.js";
 import { transformTransaction } from "./utils/transaction-transformer.js";
@@ -46,6 +50,39 @@ async function main() {
                 actualId,
                 accountTransactions,
             );
+        }
+
+        // Reconcile balances for specified Akahu accounts
+        if (conf.reconcileAccountIds.length > 0) {
+            const akahuAccounts: Account[] = await akahuService.getAccounts();
+            const balanceByAkahuId = new Map<string, number>();
+            for (const acct of akahuAccounts) {
+                if (acct.balance == undefined) {
+                    continue;
+                }
+                const balance = acct.balance.current;
+                balanceByAkahuId.set(acct._id, balance);
+            }
+            for (const akahuId of conf.reconcileAccountIds) {
+                const actualId = conf.accountMappings[akahuId];
+                if (!actualId) {
+                    console.warn(
+                        `No Actual account mapping for Akahu account ID: ${akahuId}`,
+                    );
+                    continue;
+                }
+                const targetBalance = balanceByAkahuId.get(akahuId);
+                if (typeof targetBalance !== "number") {
+                    console.warn(
+                        `No balance found for Akahu account ID: ${akahuId}`,
+                    );
+                    continue;
+                }
+                await actualService.reconcileAccountBalance(
+                    actualId,
+                    targetBalance,
+                );
+            }
         }
 
         await actualService.shutdown();
