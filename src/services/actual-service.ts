@@ -49,6 +49,28 @@ export class ActualService {
         await api.importTransactions(accountId, formattedTransactions);
     }
 
+    async reconcileAccountBalance(
+        accountId: string,
+        targetBalanceDecimal: number,
+    ): Promise<void> {
+        const targetBalance = Math.round(targetBalanceDecimal * 100);
+        const currentBalance = await api.getAccountBalance(accountId);
+        const delta = targetBalance - currentBalance;
+        if (delta === 0) {
+            return;
+        }
+        const adjustment: ActualTransaction = {
+            imported_id: `balance_adjustment_${accountId}_${new Date()
+                .toISOString()
+                .slice(0, 10)}`,
+            date: new Date(),
+            amount: delta,
+            payee_name: "Balance Adjustment",
+            notes: "Auto-reconcile from Akahu balance",
+        };
+        await this.importTransactions(accountId, [adjustment]);
+    }
+
     async shutdown(): Promise<void> {
         await api.shutdown();
     }

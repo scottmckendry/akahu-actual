@@ -6,6 +6,7 @@ interface EnvConfig {
     ACTUAL_E2E_ENCRYPTION_PASSWORD: string;
     ACTUAL_SYNC_ID: string;
     ACCOUNT_MAPPINGS: string;
+    RECONCILE_ACCOUNT_IDS?: string;
     DAYS_TO_FETCH?: string;
 }
 
@@ -17,6 +18,7 @@ export interface ValidatedConfig {
     actualE2eEncryptionPassword: string | undefined;
     actualSyncId: string;
     accountMappings: Record<string, string>;
+    reconcileAccountIds: string[];
     daysToFetch: number;
 }
 
@@ -41,6 +43,9 @@ export function validateEnv(): ValidatedConfig {
         throw new Error("ACCOUNT_MAPPINGS is empty");
     }
 
+    let reconcileAccountIds: string[] = [];
+    reconcileAccountIds = JSON.parse(process.env.RECONCILE_ACCOUNT_IDS || "[]");
+
     const daysToFetch = Number(process.env.DAYS_TO_FETCH || "7");
     if (isNaN(daysToFetch) || daysToFetch <= 0) {
         throw new Error("DAYS_TO_FETCH must be a positive number");
@@ -55,5 +60,6 @@ export function validateEnv(): ValidatedConfig {
         actualSyncId: process.env.ACTUAL_SYNC_ID!,
         accountMappings,
         daysToFetch,
+        reconcileAccountIds,
     };
 }
