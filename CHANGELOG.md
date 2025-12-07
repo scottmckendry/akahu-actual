@@ -1,5 +1,18 @@
 # Changelog
 
+## [0.9.0](https://github.com/scottmckendry/akahu-actual/compare/v0.8.0...v0.9.0) (2025-12-07)
+
+
+### Features
+
+* add optional auto-reconciliation ([#80](https://github.com/scottmckendry/akahu-actual/issues/80)) ([0e66405](https://github.com/scottmckendry/akahu-actual/commit/0e6640505d0b06728f4c6bc725405ddc5351bfb7))
+* **deps:** update dependency @actual-app/api ( 25.11.0 → 25.12.0 ) ([d8db16c](https://github.com/scottmckendry/akahu-actual/commit/d8db16cac61a5c75426cef3613630a9f12b2f040))
+
+
+### Bug Fixes
+
+* **deps:** update dependency ts-jest ( 29.4.5 → 29.4.6 ) ([29c873f](https://github.com/scottmckendry/akahu-actual/commit/29c873fe942a4326750995d3b387e4d0d2ffab17))
+
 ## [0.8.0](https://github.com/scottmckendry/akahu-actual/compare/v0.7.1...v0.8.0) (2025-11-29)
 
 
