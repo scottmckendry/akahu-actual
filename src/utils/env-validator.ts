@@ -38,23 +38,37 @@ export function validateEnv(): ValidatedConfig {
         }
     }
 
-    const accountMappings = JSON.parse(process.env.ACCOUNT_MAPPINGS!) as Record<string, string>;
+    const accountMappings = JSON.parse(process.env.ACCOUNT_MAPPINGS!) as Record<
+        string,
+        string
+    >;
     if (Object.keys(accountMappings).length === 0) {
         throw new Error("ACCOUNT_MAPPINGS is empty");
     }
     for (const [akahuId, actualId] of Object.entries(accountMappings)) {
-        const match = actualId.match('^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$');
+        const match = actualId.match(
+            "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+        );
         if (!match) {
-            throw new Error(`ACCOUNT_MAPPINGS values must be a valid UUID (${actualId})`);
+            throw new Error(
+                `ACCOUNT_MAPPINGS values must be a valid UUID (${actualId})`,
+            );
         }
     }
 
     let reconcileAccountIds: string[] = [];
-    reconcileAccountIds = JSON.parse(process.env.RECONCILE_ACCOUNT_IDS || "[]");
-    for (const actualId of reconcileAccountIds) {
-        const match = actualId.match('^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$');
-        if (!match) {
-            throw new Error(`RECONCILE_ACCOUNT_IDS values must be a valid UUID (${actualId})`);
+    try {
+        reconcileAccountIds = JSON.parse(
+            process.env.RECONCILE_ACCOUNT_IDS || "[]",
+        );
+    } catch (e) {
+        throw new Error("RECONCILE_ACCOUNT_IDS must be valid JSON");
+    }
+    for (const akahuId of reconcileAccountIds) {
+        if (!accountMappings[akahuId]) {
+            throw new Error(
+                `RECONCILE_ACCOUNT_IDS contains unknown Akahu account ID (${akahuId})`,
+            );
         }
     }
 
