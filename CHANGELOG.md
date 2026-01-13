@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.10.2](https://github.com/scottmckendry/akahu-actual/compare/v0.10.1...v0.10.2) (2026-01-13)
+
+
+### Bug Fixes
+
+* **env-validator:** don't treat reconcile IDs as UUIDs ([558a6fb](https://github.com/scottmckendry/akahu-actual/commit/558a6fbddc53f55b2e93743c44d927b096d00a9b))
+
 ## [0.10.1](https://github.com/scottmckendry/akahu-actual/compare/v0.10.0...v0.10.1) (2026-01-13)
 
 
