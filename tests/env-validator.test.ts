@@ -10,6 +10,7 @@ describe("validateEnv", () => {
         process.env.ACTUAL_SYNC_ID = "sync_id";
         process.env.ACCOUNT_MAPPINGS = JSON.stringify({ acc_foo: "dddc8768-8a70-4d92-8e92-896bf07cc735" });
         process.env.DAYS_TO_FETCH = "7";
+        delete process.env.RECONCILE_ACCOUNT_IDS;
     });
 
     it("returns validated config when env is valid", () => {

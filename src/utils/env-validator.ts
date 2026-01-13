@@ -38,7 +38,7 @@ export function validateEnv(): ValidatedConfig {
         }
     }
 
-    const accountMappings = JSON.parse(process.env.ACCOUNT_MAPPINGS!);
+    const accountMappings = JSON.parse(process.env.ACCOUNT_MAPPINGS!) as Record<string, string>;
     if (Object.keys(accountMappings).length === 0) {
         throw new Error("ACCOUNT_MAPPINGS is empty");
     }
