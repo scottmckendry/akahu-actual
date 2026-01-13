@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.10.1](https://github.com/scottmckendry/akahu-actual/compare/v0.10.0...v0.10.1) (2026-01-13)
+
+
+### Bug Fixes
+
+* **env-validator:** add required type assertion to satisfy `tsc` ([cb46d96](https://github.com/scottmckendry/akahu-actual/commit/cb46d963f2d193b83da7d60fcf067ec2d7827762))
+
 ## [0.10.0](https://github.com/scottmckendry/akahu-actual/compare/v0.9.0...v0.10.0) (2026-01-13)
 
 
