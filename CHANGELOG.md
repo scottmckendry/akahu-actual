@@ -1,5 +1,18 @@
 # Changelog
 
+## [0.10.0](https://github.com/scottmckendry/akahu-actual/compare/v0.9.0...v0.10.0) (2026-01-13)
+
+
+### Features
+
+* **deps:** Update dependency @actual-app/api ( 25.12.0 → 26.1.0 ) ([21229fe](https://github.com/scottmckendry/akahu-actual/commit/21229fea24177de6597f417e6b2d7b3a497aea50))
+
+
+### Bug Fixes
+
+* **deps:** update dependency @types/node ( 24.10.1 → 24.10.8 ) ([8e1cce6](https://github.com/scottmckendry/akahu-actual/commit/8e1cce6aef894eed579d155827517231121b3485))
+* **env-validator:** validate provided actual account ids as uuid's ([#86](https://github.com/scottmckendry/akahu-actual/issues/86)) ([089d12a](https://github.com/scottmckendry/akahu-actual/commit/089d12a51d2ced024b9c0db9ce9820319ea53694))
+
 ## [0.9.0](https://github.com/scottmckendry/akahu-actual/compare/v0.8.0...v0.9.0) (2025-12-07)
 
 
