@@ -91,7 +91,7 @@ services:
 > Consider setting up a cron job for automatic scheduling.
 
 > [!NOTE]
-> If you're deploying to Kubernetes, I suggest taking a look at the example in my homelab repo [here](https://github.com/scottmckendry/axis/blob/main/kubernetes/actual/akahu-actual/release.yaml).
+> If you're deploying to Kubernetes, I suggest taking a look at the example in my homelab repo [here](https://github.com/scottmckendry/axis/blob/main/kubernetes/apps/actual/akahu-actual/release.yaml).
 
 ### Option 2: Local Node.js Installation
 
