@@ -1,5 +1,18 @@
 # Changelog
 
+## [0.14.0](https://github.com/scottmckendry/akahu-actual/compare/v0.13.0...v0.14.0) (2026-04-15)
+
+
+### Features
+
+* **deps:** update dependency @actual-app/api ( 26.3.0 → 26.4.0 ) ([7847b66](https://github.com/scottmckendry/akahu-actual/commit/7847b669a9d942c0844dd736f8a1b63ca59eb2ec))
+* **deps:** update dependency dotenv ( 17.3.1 → 17.4.2 ) ([#118](https://github.com/scottmckendry/akahu-actual/issues/118)) ([ba12cc9](https://github.com/scottmckendry/akahu-actual/commit/ba12cc9607b9467cb69ed50da829c92cf9207102))
+
+
+### Bug Fixes
+
+* **deps:** update dependency @types/node ( 24.12.0 → 24.12.2 ) ([323c1c3](https://github.com/scottmckendry/akahu-actual/commit/323c1c30397dfd3698566b31ac562c2410388aca))
+
 ## [0.13.0](https://github.com/scottmckendry/akahu-actual/compare/v0.12.0...v0.13.0) (2026-03-12)
 
 
