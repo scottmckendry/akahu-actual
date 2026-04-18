@@ -1,5 +1,6 @@
-import { describe, it, expect, beforeEach, jest } from "@jest/globals";
-import { AkahuService } from "../src/services/akahu-service";
+import { describe, it, beforeEach } from "node:test";
+import assert from "node:assert/strict";
+import { AkahuService } from "../src/services/akahu-service.js";
 
 describe("AkahuService", () => {
     const appToken = "app_token";
@@ -11,18 +12,16 @@ describe("AkahuService", () => {
     });
 
     it("can be instantiated", () => {
-        expect(service).toBeInstanceOf(AkahuService);
+        assert.ok(service instanceof AkahuService);
     });
 
     it("getTransactions can be called (mocked)", async () => {
-        service.getTransactions = jest
-            .fn<() => Promise<any[]>>()
-            .mockResolvedValue([]);
-        await expect(
+        service.getTransactions = async () => [];
+        await assert.doesNotReject(
             service.getTransactions({
                 start: "2025-08-01",
                 end: "2025-08-04",
             } as any),
-        ).resolves.toEqual([]);
+        );
     });
 });

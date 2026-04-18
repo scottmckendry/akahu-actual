@@ -21,11 +21,6 @@ jobs:
         run: npm ci
       - name: Run tests
         run: npm test
-      - name: Test summary
-        uses: test-summary/action@31493c76ec9e7aa675f1585d3ed6f1da69269a86 # v2
-        with:
-          paths: test-results/results.xml
-        if: always()
 
   release-please:
     name: Release

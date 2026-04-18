@@ -10,15 +10,11 @@
         "dotenv": "^17.0.0"
     },
     "devDependencies": {
-        "@types/jest": "^30.0.0",
         "@types/node": "^24.0.0",
-        "jest": "^30.0.5",
-        "jest-junit": "^16.0.0",
-        "ts-jest": "^29.4.1",
-        "ts-node": "^10.9.2"
+        "tsx": "^4.0.0"
     },
     "scripts": {
-        "test": "jest"
+        "test": "node --import tsx --test tests/**/*.test.ts"
     },
     "version": "0.13.0"
 }

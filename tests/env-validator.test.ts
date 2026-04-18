@@ -1,5 +1,6 @@
-import { describe, it, expect, beforeEach } from "@jest/globals";
-import { validateEnv } from "../src/utils/env-validator";
+import { describe, it, beforeEach } from "node:test";
+import assert from "node:assert/strict";
+import { validateEnv } from "../src/utils/env-validator.js";
 
 describe("validateEnv", () => {
     beforeEach(() => {
@@ -17,56 +18,54 @@ describe("validateEnv", () => {
 
     it("returns validated config when env is valid", () => {
         const config = validateEnv();
-        expect(config.akahuAppToken).toBe("app_token");
-        expect(config.accountMappings).toEqual({
+        assert.equal(config.akahuAppToken, "app_token");
+        assert.deepEqual(config.accountMappings, {
             acc_foo: "dddc8768-8a70-4d92-8e92-896bf07cc735",
         });
-        expect(config.daysToFetch).toBe(7);
+        assert.equal(config.daysToFetch, 7);
     });
 
     it("throws if required env var is missing", () => {
         delete process.env.AKAHU_APP_TOKEN;
-        expect(() => validateEnv()).toThrow(/AKAHU_APP_TOKEN is not set/);
+        assert.throws(() => validateEnv(), /AKAHU_APP_TOKEN is not set/);
     });
 
     it("throws if ACCOUNT_MAPPINGS is empty", () => {
         process.env.ACCOUNT_MAPPINGS = JSON.stringify({});
-        expect(() => validateEnv()).toThrow(/ACCOUNT_MAPPINGS is empty/);
+        assert.throws(() => validateEnv(), /ACCOUNT_MAPPINGS is empty/);
     });
 
     it("throws if DAYS_TO_FETCH is invalid", () => {
         process.env.DAYS_TO_FETCH = "not_a_number";
-        expect(() => validateEnv()).toThrow(
-            /DAYS_TO_FETCH must be a positive number/,
-        );
+        assert.throws(() => validateEnv(), /DAYS_TO_FETCH must be a positive number/);
     });
 
     it("throws if account mapping uuids are invalid", () => {
         process.env.ACCOUNT_MAPPINGS = JSON.stringify({
             akahu_account: "actual_account_id",
         });
-        expect(() => validateEnv()).toThrow(
+        assert.throws(
+            () => validateEnv(),
             /ACCOUNT_MAPPINGS values must be a valid UUID \(actual_account_id\)/,
         );
     });
 
     it("throws if reconcile account ids are invalid", () => {
         process.env.RECONCILE_ACCOUNT_IDS = JSON.stringify(["acc_unknown"]);
-        expect(() => validateEnv()).toThrow(
+        assert.throws(
+            () => validateEnv(),
             /RECONCILE_ACCOUNT_IDS contains unknown Akahu account ID \(acc_unknown\)/,
         );
     });
 
     it("throws if reconcile account ids is invalid JSON", () => {
         process.env.RECONCILE_ACCOUNT_IDS = "not valid json";
-        expect(() => validateEnv()).toThrow(
-            /RECONCILE_ACCOUNT_IDS must be valid JSON/,
-        );
+        assert.throws(() => validateEnv(), /RECONCILE_ACCOUNT_IDS must be valid JSON/);
     });
 
     it("accepts valid reconcile account ids", () => {
         process.env.RECONCILE_ACCOUNT_IDS = JSON.stringify(["acc_foo"]);
         const config = validateEnv();
-        expect(config.reconcileAccountIds).toEqual(["acc_foo"]);
+        assert.deepEqual(config.reconcileAccountIds, ["acc_foo"]);
     });
 });

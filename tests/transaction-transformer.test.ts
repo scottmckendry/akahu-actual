@@ -1,5 +1,6 @@
-import { describe, it, expect } from "@jest/globals";
-import { transformTransaction } from "../src/utils/transaction-transformer";
+import { describe, it } from "node:test";
+import assert from "node:assert/strict";
+import { transformTransaction } from "../src/utils/transaction-transformer.js";
 
 describe("transformTransaction", () => {
     it("transforms an enriched transaction to actual transaction", () => {
@@ -13,11 +14,11 @@ describe("transformTransaction", () => {
             category: { name: "Food" },
         };
         const actual = transformTransaction(enriched as any);
-        expect(actual.imported_id).toBe("tx1");
-        expect(actual.date).toEqual(new Date("2025-08-01"));
-        expect(actual.amount).toBe(1234);
-        expect(actual.payee_name).toBe("Coffee Shop");
-        expect(actual.notes).toMatch(/debit/);
+        assert.equal(actual.imported_id, "tx1");
+        assert.deepEqual(actual.date, new Date("2025-08-01"));
+        assert.equal(actual.amount, 1234);
+        assert.equal(actual.payee_name, "Coffee Shop");
+        assert.match(actual.notes, /debit/);
     });
 
     it("falls back to description if merchant missing", () => {
@@ -30,6 +31,6 @@ describe("transformTransaction", () => {
             category: { name: "Food" },
         };
         const actual = transformTransaction(enriched as any);
-        expect(actual.payee_name).toBe("Groceries");
+        assert.equal(actual.payee_name, "Groceries");
     });
 });
