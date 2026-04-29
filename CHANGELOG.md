@@ -1,5 +1,20 @@
 # Changelog
 
+## [0.14.0](https://github.com/scottmckendry/akahu-actual/compare/v0.13.0...v0.14.0) (2026-04-29)
+
+
+### Features
+
+* **actual-service:** check server version on init ([cff7845](https://github.com/scottmckendry/akahu-actual/commit/cff78453b8cad849ada6b388d433cbec0a131adf))
+* **deps:** update dependency dotenv ( 17.3.1 → 17.4.2 ) ([#118](https://github.com/scottmckendry/akahu-actual/issues/118)) ([ba12cc9](https://github.com/scottmckendry/akahu-actual/commit/ba12cc9607b9467cb69ed50da829c92cf9207102))
+* **tests:** use native node test suite ([ae99c75](https://github.com/scottmckendry/akahu-actual/commit/ae99c75c85aa4c531afe74166d5a9edc82dc449c))
+
+
+### Bug Fixes
+
+* **deps:** update dependency @types/node ( 24.12.0 → 24.12.2 ) ([f841ea5](https://github.com/scottmckendry/akahu-actual/commit/f841ea592c1fd40a73562295538f35af6396d4ec))
+* **deps:** update dependency ts-jest ( 29.4.6 → 29.4.9 ) ([975d2b6](https://github.com/scottmckendry/akahu-actual/commit/975d2b68bf246052fb185df4b2c70a58404f26e6))
+
 ## [0.13.0](https://github.com/scottmckendry/akahu-actual/compare/v0.12.0...v0.13.0) (2026-03-12)
 
 
