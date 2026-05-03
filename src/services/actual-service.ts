@@ -1,7 +1,19 @@
 import * as api from "@actual-app/api";
 import { ImportTransactionEntity } from "@actual-app/api/@types/loot-core/src/types/models";
 import * as os from "os";
-import { version as apiVersion } from "@actual-app/api/package.json";
+import { readFileSync } from "fs";
+import { resolve, dirname } from "path";
+
+const apiVersion: string = JSON.parse(
+    readFileSync(
+        resolve(
+            dirname(require.resolve("@actual-app/api")),
+            "..",
+            "package.json",
+        ),
+        "utf8",
+    ),
+).version;
 
 /**
  * Checks that the Actual server version is compatible with the local API package.
