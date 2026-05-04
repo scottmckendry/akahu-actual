@@ -1,8 +1,11 @@
 import * as api from "@actual-app/api";
-import { ImportTransactionEntity } from "@actual-app/api/@types/loot-core/src/types/models";
 import * as os from "os";
 import { readFileSync } from "fs";
 import { resolve, dirname } from "path";
+
+type ImportTransactionEntity = Parameters<
+    typeof api.importTransactions
+>[1][number];
 
 const apiVersion: string = JSON.parse(
     readFileSync(
