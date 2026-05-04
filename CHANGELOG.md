@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.14.1](https://github.com/scottmckendry/akahu-actual/compare/v0.14.0...v0.14.1) (2026-05-04)
+
+
+### Bug Fixes
+
+* **actual-service:** type import error ([d11f66e](https://github.com/scottmckendry/akahu-actual/commit/d11f66eef056a5693c8f534ec77ac160abcf2ae8))
+
 ## [0.14.0](https://github.com/scottmckendry/akahu-actual/compare/v0.13.0...v0.14.0) (2026-05-04)
 
 
