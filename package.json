@@ -2,7 +2,7 @@
     "name": "akahu-actual",
     "private": true,
     "peerDependencies": {
-        "typescript": "^5"
+        "typescript": "^5 || ^6.0.0"
     },
     "dependencies": {
         "@actual-app/api": "^26.0.0",
