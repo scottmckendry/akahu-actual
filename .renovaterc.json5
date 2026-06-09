@@ -6,72 +6,33 @@
     "helpers:pinGitHubActionDigests",
     ":dependencyDashboard",
     ":disableRateLimiting",
-    ":semanticCommits",
   ],
-  dependencyDashboard: true,
-  dependencyDashboardTitle: "Renovate Dashboard 🤖",
-  suppressNotifications: [
-    "prEditedNotification",
-    "prIgnoreNotification",
-  ],
-  timezone: "Pacific/Auckland",
+  separateMajorMinor: false,
   packageRules: [
     {
-      matchUpdateTypes: ["major"],
-      semanticCommitType: "feat",
-      commitMessagePrefix: "{{semanticCommitType}}({{semanticCommitScope}})!:",
-      commitMessageExtra: "( {{currentVersion}} → {{newVersion}} )",
-    },
-    {
-      matchUpdateTypes: ["minor"],
-      semanticCommitType: "feat",
-      commitMessageExtra: "( {{currentVersion}} → {{newVersion}} )",
-    },
-    {
-      matchUpdateTypes: ["patch"],
+      matchPackagePatterns: ["*"],
       semanticCommitType: "fix",
-      commitMessageExtra: "( {{currentVersion}} → {{newVersion}} )",
     },
     {
-      matchUpdateTypes: ["digest"],
-      semanticCommitType: "chore",
-      commitMessageExtra: "( {{currentDigestShort}} → {{newDigestShort}} )",
+      matchDatasources: ["npm"],
+      groupName: "npm",
+      groupSlug: "npm",
+      commitMessageTopic: "{{{groupName}}}",
+      commitMessageExtra: "({{upgrades.length}} packages)",
     },
     {
       matchDatasources: ["docker"],
-      semanticCommitScope: "container",
-      commitMessageTopic: "image {{depName}}",
+      groupName: "docker",
+      groupSlug: "docker",
+      commitMessageTopic: "{{{groupName}}}",
+      commitMessageExtra: "({{upgrades.length}} packages)",
     },
     {
       matchManagers: ["github-actions"],
-      semanticCommitType: "ci",
-      semanticCommitScope: "github-action",
-      commitMessageTopic: "action {{depName}}",
+      groupName: "actions",
+      groupSlug: "actions",
+      commitMessageTopic: "{{{groupName}}}",
+      commitMessageExtra: "({{upgrades.length}} packages)",
     },
-    {
-      matchDatasources: ["github-releases"],
-      semanticCommitScope: "github-release",
-      commitMessageTopic: "release {{depName}}",
-    },
-    {
-      matchUpdateTypes: ["major"],
-      labels: ["type/major"],
-    },
-    {
-      matchUpdateTypes: ["minor"],
-      labels: ["type/minor"],
-    },
-    {
-      matchUpdateTypes: ["patch"],
-      labels: ["type/patch"],
-    },
-    {
-      matchManagers: ["github-actions"],
-      addLabels: ["renovate/github-action"],
-    },
-    {
-      matchDatasources: ["github-releases"],
-      addLabels: ["renovate/github-release"],
-    }
-  ]
+  ],
 }
