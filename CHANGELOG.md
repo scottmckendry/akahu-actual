@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.14.6](https://github.com/scottmckendry/akahu-actual/compare/v0.14.5...v0.14.6) (2026-10-02)
+
+
+### Bug Fixes
+
+* **deps:** update actions (2 packages) ([00edc1d](https://github.com/scottmckendry/akahu-actual/commit/00edc1d8cf88711439eb3e32f3730113decb7c7b))
+* **deps:** update npm ([2037827](https://github.com/scottmckendry/akahu-actual/commit/2037827cc3a4229878658687b4a80513fecfff8e))
+
 ## [0.14.5](https://github.com/scottmckendry/akahu-actual/compare/v0.14.4...v0.14.5) (2026-09-03)
 
 
