@@ -1,5 +1,5 @@
 # build
-FROM docker.io/library/node:24 AS builder
+FROM docker.io/library/node:26 AS builder
 
 WORKDIR /build
 COPY . .
@@ -8,7 +8,7 @@ RUN npx tsc
 RUN npm prune --omit=dev
 
 # runtime
-FROM docker.io/library/node:24-slim
+FROM docker.io/library/node:26-slim
 
 USER node
 WORKDIR /app
