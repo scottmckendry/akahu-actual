@@ -1,5 +1,19 @@
 # Changelog
 
+## [0.15.0](https://github.com/scottmckendry/akahu-actual/compare/v0.14.6...v0.15.0) (2026-11-04)
+
+
+### Features
+
+* migrate to bun ([5f772d0](https://github.com/scottmckendry/akahu-actual/commit/5f772d0150214e021340ac838413720765ad2ba1))
+
+
+### Bug Fixes
+
+* **deps:** update (2 packages) ([1d01661](https://github.com/scottmckendry/akahu-actual/commit/1d0166189e9a679b0107057a242ff18c79fef8f7))
+* **deps:** update actions (3 packages) ([8b1078c](https://github.com/scottmckendry/akahu-actual/commit/8b1078ca5ad257bf9c00ffe64f820d3841fc0654))
+* **deps:** update npm (4 packages) ([e7b9114](https://github.com/scottmckendry/akahu-actual/commit/e7b9114ebea26afe787c9587d60edf80695d499f))
+
 ## [0.14.6](https://github.com/scottmckendry/akahu-actual/compare/v0.14.5...v0.14.6) (2026-10-03)
 
 
