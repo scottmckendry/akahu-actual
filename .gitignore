@@ -137,3 +137,8 @@ dist
 tmp/My-Finances-e136d51
 actual-data
 test-results
+
+# Nix
+.direnv/
+result
+result-*
