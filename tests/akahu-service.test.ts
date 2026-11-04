@@ -1,6 +1,6 @@
-import { describe, it, beforeEach } from "node:test";
+import { describe, it, beforeEach } from "bun:test";
 import assert from "node:assert/strict";
-import { AkahuService } from "../src/services/akahu-service.js";
+import { AkahuService } from "../src/services/akahu-service.ts";
 
 describe("AkahuService", () => {
     const appToken = "app_token";

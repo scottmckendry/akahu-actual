@@ -1,0 +1,4 @@
+[install]
+# better-sqlite3 13 ships prebuilt Node-API addons. Bun's implicit node-gyp
+# fallback fails without a compiler and produces a binary the Bun loader rejects.
+ignoreScripts = true

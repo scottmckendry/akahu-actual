@@ -1,9 +1,14 @@
 version: "3"
 tasks:
-  build:
+  check:
+    desc: Type-check the project
     cmds:
-      - tsc
+      - bun run typecheck
+  test:
+    desc: Run the test suite
+    cmds:
+      - bun test
   default:
-    deps: [build]
+    deps: [check]
     cmds:
-      - node dist/index.js
+      - bun run start

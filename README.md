@@ -7,7 +7,7 @@ An ideal solution for Kiwis who want to use Actual Budget to manage their financ
 ## 🔑 Prerequisites
 
 - An Akahu account with a configured personal app ([see Akuhu's documentation](https://developers.akahu.nz/docs/personal-apps))
-- Docker (recommended) or Node.js
+- Docker (recommended) or Bun 1.4.1+
 
 > [!NOTE]
 > Only the **Transactions** permission is required in your Akahu app settings.
@@ -93,20 +93,22 @@ services:
 > [!NOTE]
 > If you're deploying to Kubernetes, I suggest taking a look at the example in my homelab repo [here](https://github.com/scottmckendry/axis/blob/main/kubernetes/apps/actual/akahu-actual/release.yaml).
 
-### Option 2: Local Node.js Installation
+### Option 2: Local Bun Installation
 
 1. Clone the repository
 2. Install dependencies:
 
 ```bash
-npm install
+bun install
 ```
 
 3. Run the script:
 
 ```bash
-npx tsc && node dist/index.js
+bun run start
 ```
+
+Run the tests with `bun test` and type-check with `bun run typecheck`.
 
 ## 🤝 Contributing
 

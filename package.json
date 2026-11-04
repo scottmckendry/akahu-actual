@@ -1,20 +1,23 @@
 {
     "name": "akahu-actual",
     "private": true,
-    "peerDependencies": {
-        "typescript": "^5 || ^6.0.0 || ^7.0.0"
+    "version": "0.14.6",
+    "packageManager": "bun@1.4.4",
+    "engines": {
+        "bun": ">=1.4.1"
+    },
+    "trustedDependencies": [],
+    "scripts": {
+        "start": "bun run src/index.ts",
+        "test": "bun test",
+        "typecheck": "tsc --noEmit"
     },
     "dependencies": {
         "@actual-app/api": "^26.0.0",
-        "akahu": "^2.1.0",
-        "dotenv": "^18.0.0"
+        "akahu": "^2.1.0"
     },
     "devDependencies": {
-        "@types/node": "^26.0.0",
-        "tsx": "^4.0.0"
-    },
-    "scripts": {
-        "test": "node --import tsx --test tests/**/*.test.ts"
-    },
-    "version": "0.14.6"
+        "@types/bun": "^1.4.4",
+        "typescript": "^7.0.2"
+    }
 }

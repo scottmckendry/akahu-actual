@@ -1,6 +1,6 @@
-import { describe, it } from "node:test";
+import { describe, it } from "bun:test";
 import assert from "node:assert/strict";
-import { checkServerVersion } from "../src/services/actual-service.js";
+import { checkServerVersion } from "../src/services/actual-service.ts";
 
 describe("checkServerVersion", () => {
     it("does not throw when major.minor match", () => {

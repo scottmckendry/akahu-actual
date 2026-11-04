@@ -12,7 +12,7 @@ export class AkahuService {
         private readonly userToken: string,
     ) {}
 
-    private getHeaders(): HeadersInit {
+    private getHeaders(): Record<string, string> {
         return {
             "Content-Type": "application/json",
             Accept: "application/json",

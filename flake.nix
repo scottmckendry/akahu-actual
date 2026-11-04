@@ -23,16 +23,19 @@
         {
           default = pkgs.mkShell {
             packages = with pkgs; [
+              bun
               curl
               git
               go-task
               jq
-              nodejs_26
               prettier
               typescript
               typescript-language-server
               vscode-langservers-extracted
             ];
+            shellHook = ''
+              export LD_LIBRARY_PATH="${pkgs.lib.makeLibraryPath [ pkgs.stdenv.cc.cc.lib ]}''${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}"
+            '';
           };
         }
       );

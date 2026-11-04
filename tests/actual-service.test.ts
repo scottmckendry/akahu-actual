@@ -1,6 +1,6 @@
-import { describe, it, beforeEach } from "node:test";
+import { describe, it, beforeEach } from "bun:test";
 import assert from "node:assert/strict";
-import { ActualService } from "../src/services/actual-service.js";
+import { ActualService } from "../src/services/actual-service.ts";
 
 describe("ActualService", () => {
     const serverURL = "http://localhost";

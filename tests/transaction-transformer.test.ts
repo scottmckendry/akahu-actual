@@ -1,6 +1,6 @@
-import { describe, it } from "node:test";
+import { describe, it } from "bun:test";
 import assert from "node:assert/strict";
-import { transformTransaction } from "../src/utils/transaction-transformer.js";
+import { transformTransaction } from "../src/utils/transaction-transformer.ts";
 
 describe("transformTransaction", () => {
     it("transforms an enriched transaction to actual transaction", () => {

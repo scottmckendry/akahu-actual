@@ -3,15 +3,13 @@ import type {
     EnrichedTransaction,
     Account,
 } from "akahu";
-import { config } from "dotenv";
-import { AkahuService } from "./services/akahu-service.js";
-import { ActualService } from "./services/actual-service.js";
-import { transformTransaction } from "./utils/transaction-transformer.js";
-import { validateEnv, ValidatedConfig } from "./utils/env-validator.js";
+import { AkahuService } from "./services/akahu-service.ts";
+import { ActualService } from "./services/actual-service.ts";
+import { transformTransaction } from "./utils/transaction-transformer.ts";
+import { validateEnv, type ValidatedConfig } from "./utils/env-validator.ts";
 
 async function main() {
     try {
-        config();
         const conf: ValidatedConfig = validateEnv();
         const query: TransactionQueryParams = {
             start: new Date(

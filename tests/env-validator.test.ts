@@ -1,6 +1,6 @@
-import { describe, it, beforeEach } from "node:test";
+import { describe, it, beforeEach } from "bun:test";
 import assert from "node:assert/strict";
-import { validateEnv } from "../src/utils/env-validator.js";
+import { validateEnv } from "../src/utils/env-validator.ts";
 
 describe("validateEnv", () => {
     beforeEach(() => {

@@ -1,20 +1,12 @@
-# build
-FROM docker.io/library/node:26 AS builder
+FROM docker.io/oven/bun:1.4.4-slim
 
-WORKDIR /build
-COPY . .
-RUN npm install
-RUN npx tsc
-RUN npm prune --omit=dev
-
-# runtime
-FROM docker.io/library/node:26-slim
-
-USER node
 WORKDIR /app
 
-COPY --from=builder --chown=node /build/package.json ./
-COPY --from=builder --chown=node /build/node_modules ./node_modules
-COPY --from=builder --chown=node /build/dist ./dist
+COPY package.json bun.lock bunfig.toml ./
+RUN bun install --frozen-lockfile --production
 
-CMD ["node", "dist/index.js"]
+COPY --chown=bun:bun src ./src
+
+USER bun
+
+CMD ["bun", "run", "start"]
