@@ -1,7 +1,7 @@
 {
     "name": "akahu-actual",
     "private": true,
-    "version": "0.14.6",
+    "version": "0.15.0",
     "packageManager": "bun@1.4.4",
     "engines": {
         "bun": ">=1.4.1"
